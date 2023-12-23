@@ -40,7 +40,7 @@
                                         @if ($item->traType == 1)
                                             <span class="badge bg-olive">Credit</span>
                                         @else
-                                            <span class="badge bg-danger">Debit</span>
+                                            <span class="badge bg-warning">Debit</span>
                                         @endif
                                     </td>
                                     <td>
@@ -112,11 +112,12 @@
                                 <td>
                                     <div class="progress progress-xs">
                                         <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
-                                            style="width: {{ ($report['balance'] * 100) / ($report['totalAmount'] != 0) ? $report['totalAmount'] : 1 }}%"></div>
+                                            style="width: {{ ($report['balance'] * 100) / ($report['totalAmount'] != 0) ? $report['totalAmount'] : 1 }}%">
+                                        </div>
                                     </div>
                                 </td>
                                 <td><span
-                                        class="badge bg-success">{{ ($report['balance'] * 100) / ($report['totalAmount'] != 0) ?  $report['totalAmount'] : 1 }}%</span>
+                                        class="badge bg-success">{{ ($report['balance'] * 100) / ($report['totalAmount'] != 0) ? $report['totalAmount'] : 1 }}%</span>
                                 </td>
                                 <td><strong>{{ $report['balance'] }}</strong>&nbsp&nbsp<i class="fas fa-rupee-sign"></i>
                                 </td>
@@ -127,11 +128,12 @@
                                 <td>
                                     <div class="progress progress-xs">
                                         <div class="progress-bar progress-bar-striped bg-danger" role="progressbar"
-                                            style="width: {{ ($report['spent'] * 100) / ($report['totalAmount'] != 0) ?  $report['totalAmount'] : 1 }}%"></div>
+                                            style="width: {{ ($report['spent'] * 100) / ($report['totalAmount'] != 0) ? $report['totalAmount'] : 1 }}%">
+                                        </div>
                                     </div>
                                 </td>
                                 <td><span
-                                        class="badge bg-danger">{{ ($report['spent'] * 100) / ($report['totalAmount'] != 0) ?  $report['totalAmount'] : 1 }}%</span>
+                                        class="badge bg-danger">{{ ($report['spent'] * 100) / ($report['totalAmount'] != 0) ? $report['totalAmount'] : 1 }}%</span>
                                 </td>
                                 <td><strong>{{ $report['spent'] }}</strong>&nbsp&nbsp<i class="fas fa-rupee-sign"></i></td>
                             </tr>
