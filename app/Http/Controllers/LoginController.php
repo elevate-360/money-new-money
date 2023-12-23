@@ -4,15 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Support\Facades\DB;
 
 class LoginController extends BaseController
 {
-    public function view() {
+    public function view()
+    {
         return view('login');
     }
 
-    public function login(Request $request) {
+    public function login(Request $request)
+    {
         $username = $request->input("username");
         $password = $request->input("password");
 
@@ -24,8 +25,9 @@ class LoginController extends BaseController
         }
     }
 
-    public function logout() {
+    public function logout()
+    {
         session()->flush();
-        return redirect()->route('index');
+        return redirect()->route('index')->header('Cache-Control', 'no-cache, no-store, must-revalidate');
     }
 }

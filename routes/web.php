@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', [IndexController::class, 'view']);
+Route::get('/', [IndexController::class, 'index']);
 Route::get('/login', [LoginController::class, 'view'])->name('login');
 Route::post('/login/submit', [LoginController::class, 'login']);
 Route::get('/index', [IndexController::class, 'index'])->name('index');
