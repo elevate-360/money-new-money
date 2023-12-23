@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 
@@ -17,11 +18,19 @@ class LoginController extends BaseController
         $username = $request->input("username");
         $password = $request->input("password");
 
-        if ($username == "Admin@Elevate360" && $password == "Money@Elevate360") {
-            session()->put('user', 'Admin@Elevate360');
-            return redirect()->route('index');
+        $user = User::select("userPassword")->where("userName", "=", $username);
+
+        if (isset($user[0])) {
+            if ($user[0]->userPassword == hash("sha512", $password)) {
+                session()->put('user', 'Admin@Elevate360');
+                return redirect()->route('index');
+            } else {
+                $passwordError = true;
+                return redirect()->route('login', compact('passwordError'));
+            }
         } else {
-            return redirect()->route('login');
+            $userError = true;
+            return redirect()->route('login', compact('userError'));
         }
     }
 
