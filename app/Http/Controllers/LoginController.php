@@ -2,9 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\LoginSuccess;
+use App\Models\LoginLog;
 use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
+use Jenssegers\Agent\Agent as Agent;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class LoginController extends BaseController
 {
@@ -18,11 +25,30 @@ class LoginController extends BaseController
         $username = $request->input("username");
         $password = $request->input("password");
 
-        $user = User::select("userPassword")->where("userName", "=", $username);
+        $user = User::where("userLogin", "=", $username)->get();
 
         if (isset($user[0])) {
             if ($user[0]->userPassword == hash("sha512", $password)) {
-                session()->put('user', 'Admin@Elevate360');
+                $agent = new Agent();
+                LoginLog::updateOrInsert([
+                    "userId" => $user[0]->userId,
+                    "ipAddress" => $request->ip(),
+                    "browserInfo" => $request->userAgent(),
+                    "operatingSystem" => $agent->platform(),
+                    "deviceType" => $agent->device()
+                ], [
+                    'loginCount' => DB::raw('IFNULL(loginCount, 0) + 1'),
+                ]);
+                $customData = [
+                    'date' => now()->format('j F, Y'),
+                    'name' => $user[0]->userFirstName . " " . $user[0]->userLastName,
+                ];
+                try {
+                    Mail::to($user[0]->userEmail)->send(new LoginSuccess($customData));
+                } catch (Exception $e) {
+                    Log::error('Login Mail Error For User ' . $user[0]->userLogin . ': ' . $e->getMessage());
+                }
+                session()->put('user', $user[0]);
                 return redirect()->route('index');
             } else {
                 $passwordError = true;

@@ -105,10 +105,12 @@
                     <!-- Sidebar user panel (optional) -->
                     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                         <div class="image">
-                            <img src="dist/img/profile-pic.png" class="img-circle elevation-2" alt="User Image">
+                            <img src="dist/img/{{ session('user')->userProfile }}" class="img-circle elevation-2"
+                                alt="User Image">
                         </div>
                         <div class="info">
-                            <a href="/" class="d-block">Jay Chauhan</a>
+                            <a href="/"
+                                class="d-block">{{ session('user')->userFirstName . ' ' . session('user')->userLastName }}</a>
                         </div>
                     </div>
 
@@ -256,7 +258,7 @@
         <script src="dist/js/idle-timer.js"></script>
         <script>
             jQuery(document).ready(function() {
-                //IdleTimeout.init(); // initialize session timeout settings
+                IdleTimeout.init(); // initialize session timeout settings
             });
         </script>
         <script>

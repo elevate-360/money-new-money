@@ -74,7 +74,16 @@
                     </a>
                 </div>
                 <!-- /.social-auth-links -->
-
+                @if (isset($_GET['userError']))
+                    <div class="alert alert-danger">
+                        <i class="icon fas fa-exclamation-triangle"></i> User not found!
+                    </div>
+                @endif
+                @if (isset($_GET['passwordError']))
+                    <div class="alert alert-danger">
+                        <i class="icon fas fa-exclamation-triangle"></i> Incorrect Password!
+                    </div>
+                @endif
                 <p class="mb-1">
                     <a href="/forgot-password">I forgot my password</a>
                 </p>

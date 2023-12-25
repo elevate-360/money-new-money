@@ -30,7 +30,8 @@ class IndexController extends BaseController
         return view('data');
     }
 
-    public function insertData(Request $request) {
+    public function insertData(Request $request)
+    {
         $traTitle = $request->input("traTitle");
         $traEntity = $request->input("traEntity");
         $traAmount = $request->input("traAmount");
@@ -41,7 +42,8 @@ class IndexController extends BaseController
             'traEntity' => $traEntity,
             'traAmount' => $traAmount,
             'traType' => $traType,
-            'traMethod' => $traMethod
+            'traMethod' => $traMethod,
+            'traUserId' => session('user')->userId
         ]);
 
         return redirect()->route('index');
