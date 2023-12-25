@@ -70,6 +70,7 @@ VALUES (
         '7687.82',
         '1',
         '1',
+        1,
         '2023-12-03 00:00:00'
     );
 INSERT INTO tblTransection (
@@ -87,6 +88,7 @@ VALUES (
         '1650.82',
         '0',
         '1',
+        1,
         '2023-12-03 12:30:00'
     );
 INSERT INTO tblTransection (
@@ -104,6 +106,7 @@ VALUES (
         '6037.00',
         '0',
         '1',
+        1,
         '2023-12-03 17:23:00'
     );
 CREATE TABLE tblUserLoginLog (
@@ -120,39 +123,39 @@ CREATE TABLE tblUserLoginLog (
 -- -- Create the BEFORE INSERT trigger
 -- DELIMITER // CREATE TRIGGER before_user_login BEFORE
 -- INSERT ON tblUserLoginLog FOR EACH ROW BEGIN
--- DECLARE today DATE;
--- SET today = DATE(NEW.loginTime);
--- -- Check if a record already exists for the user on the same day
--- IF EXISTS (
---     SELECT 1
---     FROM tblUserLoginLog
---     WHERE userId = NEW.userId
---         AND DATE(loginTime) = today
--- ) THEN -- If yes, update the loginCount and prevent insertion of a new row
--- UPDATE tblUserLoginLog
--- SET loginCount = loginCount + 1,
---     loginTime = CURRENT_TIMESTAMP
--- WHERE userId = NEW.userId
---     AND DATE(loginTime) = today;
--- -- Set NEW to NULL to prevent insertion of a new row
--- SET NEW = NULL;
--- END IF;
--- END;
--- // DELIMITER;
--- CREATE TRIGGER `before_user_login` BEFORE
--- INSERT ON `tblUserLoginLog` FOR EACH ROW
--- DECLARE today DATE;
--- SET today = DATE(NEW.loginTime);
--- IF EXISTS (
---     SELECT 1
---     FROM tblUserLoginLog
---     WHERE userId = NEW.userId
---         AND DATE(loginTime) = today
--- ) THEN
--- UPDATE tblUserLoginLog
--- SET loginCount = loginCount + 1,
---     loginTime = CURRENT_TIMESTAMP
--- WHERE userId = NEW.userId
---     AND DATE(loginTime) = today;
--- SET NEW = NULL;
--- END IF
+DECLARE today DATE;
+SET today = DATE(NEW.loginTime);
+-- Check if a record already exists for the user on the same day
+IF EXISTS (
+    SELECT 1
+    FROM tblUserLoginLog
+    WHERE userId = NEW.userId
+        AND DATE(loginTime) = today
+) THEN -- If yes, update the loginCount and prevent insertion of a new row
+UPDATE tblUserLoginLog
+SET loginCount = loginCount + 1,
+    loginTime = CURRENT_TIMESTAMP
+WHERE userId = NEW.userId
+    AND DATE(loginTime) = today;
+-- Set NEW to NULL to prevent insertion of a new row
+SET NEW = NULL;
+END IF;
+END;
+// DELIMITER;
+CREATE TRIGGER `before_user_login` BEFORE
+INSERT ON `tblUserLoginLog` FOR EACH ROW
+DECLARE today DATE;
+SET today = DATE(NEW.loginTime);
+IF EXISTS (
+    SELECT 1
+    FROM tblUserLoginLog
+    WHERE userId = NEW.userId
+        AND DATE(loginTime) = today
+) THEN
+UPDATE tblUserLoginLog
+SET loginCount = loginCount + 1,
+    loginTime = CURRENT_TIMESTAMP
+WHERE userId = NEW.userId
+    AND DATE(loginTime) = today;
+SET NEW = NULL;
+END IF
