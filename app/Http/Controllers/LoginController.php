@@ -38,7 +38,6 @@ class LoginController extends BaseController
                     "deviceType" => $agent->device()
                 ], [
                     'loginCount' => DB::raw('IFNULL(loginCount, 0) + 1'),
-                    'loginTime' => now()
                 ]);
                 $customData = [
                     'date' => now()->format('j F, Y'),
