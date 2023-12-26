@@ -64,12 +64,14 @@
                                     </td>
                                     <td>
                                         <div class="user-block">
-                                            <img class="img-circle img-bordered-sm" src="/dist/img/{{ $item->userProfile }}" alt="user image">
+                                            <img class="img-circle img-bordered-sm" src="/dist/img/{{ $item->userProfile }}"
+                                                alt="user image">
                                             <span class="username">
-                                              <a href="">{{ $item->userFirstName }}</a>
+                                                <a href="">{{ $item->userFirstName }}</a>
                                             </span>
-                                            <span class="description">{{ date('d M, Y - h:m a', strtotime($item->traDate)) }}</span>
-                                          </div>
+                                            <span
+                                                class="description">{{ date('d M, Y - h:m a', strtotime($item->traDate)) }}</span>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
@@ -145,6 +147,62 @@
                                 </td>
                                 <td><strong>{{ $report['spent'] }}</strong>&nbsp&nbsp<i class="fas fa-rupee-sign"></i></td>
                             </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- User wise Report --}}
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title"><strong>Detailed Report</strong></h3>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <td><strong>#</strong></td>
+                                <td><strong>User</strong></td>
+                                <td class="w-25"><strong>Amount Received</strong></td>
+                                <td><strong>Amount Spent</strong></td>
+                            </tr>
+                            @foreach ($userReport as $item)
+                                <tr>
+                                    <td><strong>{{ ++$userCount }}</strong></td>
+                                    <td>
+                                        <div class="user-block">
+                                            <img class="img-circle img-bordered-sm"
+                                                src="/dist/img/{{ $item->userProfile }}" alt="user image">
+                                            <span class="username">
+                                                <a
+                                                    href="">{{ $item->userFirstName . ' ' . $item->userLastName }}</a>
+                                            </span>
+                                            <span class="description">
+                                                @switch($item->userRole)
+                                                    @case('0')
+                                                        <span class="badge bg-info">Employee</span>
+                                                    @break
+
+                                                    @case('1')
+                                                        <span class="badge bg-success">CO-Founder</span>
+                                                    @break
+
+                                                    @case('2')
+                                                        <span class="badge bg-success">Company Profit</span>
+                                                    @break
+                                                @endswitch
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td>{{ $item->amountReceived }}</td>
+                                    <td>{{ $item->amountSpent }}</td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
