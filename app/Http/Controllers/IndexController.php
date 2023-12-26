@@ -11,7 +11,7 @@ class IndexController extends BaseController
     public function index()
     {
         if (session()->has("user")) {
-            $data = DB::table("tblTransection")->orderBy("traDate")->get();
+            $data = DB::table("tblTransection")->select("tblTransection.traTitle", "tblTransection.traEntity", "tblTransection.traAmount", "tblTransection.traType", "tblTransection.traMethod", "tblTransection.traDate", "tblUser.userFirstName", "tblUser.userProfile")->join("tblUser", "userId", "=", "traUserId")->orderBy("traDate")->get();
             $sum = DB::table('tblTransection')->select(DB::raw('SUM(traAmount) as total_amount'))->where('traType', 1)->get();
             $totalAmount = $sum[0]->total_amount;
             $sum = DB::table('tblTransection')->select(DB::raw('SUM(traAmount) as spent'))->where('traType', 0)->get();

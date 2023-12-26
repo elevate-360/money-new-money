@@ -24,9 +24,9 @@
                                 <th>Title</th>
                                 <th>Entity</th>
                                 <th>Amount</th>
+                                <th>Transection Details</th>
                                 <th>Transection Type</th>
                                 <th>Method</th>
-                                <th>Date Time</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -36,6 +36,15 @@
                                     <td>{{ $item->traTitle }}</td>
                                     <td>{{ $item->traEntity }}</td>
                                     <td>{{ $item->traAmount }}</td>
+                                    <td>
+                                        <div class="user-block">
+                                            <img class="img-circle img-bordered-sm" src="/dist/img/{{ $item->userProfile }}" alt="user image">
+                                            <span class="username">
+                                              <a href="">{{ $item->userFirstName }}</a>
+                                            </span>
+                                            <span class="description">{{ date('d M, Y - h:m a', strtotime($item->traDate)) }}</span>
+                                          </div>
+                                    </td>
                                     <td>
                                         @if ($item->traType == 1)
                                             <span class="badge bg-olive">Credit</span>
@@ -62,7 +71,6 @@
                                             @break
                                         @endswitch
                                     </td>
-                                    <td>{{ date('d M, Y - h:m a', strtotime($item->traDate)) }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -72,9 +80,9 @@
                                 <th>Title</th>
                                 <th>Entity</th>
                                 <th>Amount</th>
+                                <th>User - Date Time</th>
                                 <th>Transection Type</th>
                                 <th>Method</th>
-                                <th>Date Time</th>
                             </tr>
                         </tfoot>
                     </table>
