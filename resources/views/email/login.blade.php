@@ -930,11 +930,13 @@
                                                                                     <span
                                                                                         style="font-weight: 400;font-style: normal;">We
                                                                                         detected a successful login
-                                                                                        attempt on your account. If this
-                                                                                        was not you, please take
-                                                                                        immediate action by changing
-                                                                                        your password to ensure the
-                                                                                        security of your account.</span>
+                                                                                        attempt on your <strong>Money
+                                                                                            Management</strong>
+                                                                                        account. If this was not you,
+                                                                                        please take immediate action by
+                                                                                        changing your password to ensure
+                                                                                        the security of your
+                                                                                        account.</span>
                                                                                 </div>
                                                                             </div>
                                                                         </td>
