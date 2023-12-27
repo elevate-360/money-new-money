@@ -30,15 +30,20 @@ class LoginController extends BaseController
         if (isset($user[0])) {
             if ($user[0]->userPassword == hash("sha512", $password)) {
                 $agent = new Agent();
-                LoginLog::updateOrInsert([
+                $loginDetails = array(
                     "userId" => $user[0]->userId,
                     "ipAddress" => $request->ip(),
                     "browserInfo" => $request->userAgent(),
                     "operatingSystem" => $agent->platform(),
-                    "deviceType" => $agent->device()
-                ], [
-                    'loginCount' => DB::raw('IFNULL(loginCount, 0) + 1'),
-                ]);
+                    "deviceType" => $agent->device(),
+                    'loginTime' => date("H:m:i"),
+                    'loginDate' => date("Y-m-d")
+                );
+                LoginLog::upsert(
+                    $loginDetails,
+                    ['userId', 'loginDate'],
+                    ['loginCount' => DB::raw('loginCount + 1')]
+                );
                 $customData = [
                     'date' => now()->format('j F, Y'),
                     'name' => $user[0]->userFirstName . " " . $user[0]->userLastName,
