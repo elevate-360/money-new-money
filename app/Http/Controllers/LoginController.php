@@ -36,8 +36,8 @@ class LoginController extends BaseController
                     "browserInfo" => $request->userAgent(),
                     "operatingSystem" => $agent->platform(),
                     "deviceType" => $agent->device(),
-                    'loginTime' => date("H:m:i"),
-                    'loginDate' => date("Y-m-d")
+                    'loginTime' => date("H:m:i", strtotime("+5:30")),
+                    'loginDate' => date("Y-m-d", strtotime("+5:30"))
                 );
                 LoginLog::upsert(
                     $loginDetails,
