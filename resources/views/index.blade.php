@@ -138,12 +138,12 @@
                                 <td>
                                     <div class="progress progress-xs">
                                         <div class="progress-bar progress-bar-striped bg-danger" role="progressbar"
-                                            style="width: {{ ($report['spent'] * 100) / ($report['totalAmount'] != 0) ? $report['totalAmount'] : 1 }}%">
+                                            style="width: {{ ($report['spent'] * 100) / $report['totalAmount'] }}%">
                                         </div>
                                     </div>
                                 </td>
                                 <td><span
-                                        class="badge bg-danger">{{ ($report['spent'] * 100) / ($report['totalAmount'] != 0) ? $report['totalAmount'] : 1 }}%</span>
+                                        class="badge bg-danger">{{ ($report['spent'] * 100) / $report['totalAmount'] }}%</span>
                                 </td>
                                 <td><strong>{{ $report['spent'] }}</strong>&nbsp&nbsp<i class="fas fa-rupee-sign"></i></td>
                             </tr>
