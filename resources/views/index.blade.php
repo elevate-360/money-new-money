@@ -113,7 +113,8 @@
                                 <td>
                                     <center><strong>-</strong></center>
                                 </td>
-                                <td><strong>{{ $report['totalAmount'] }}</strong>&nbsp&nbsp<i class="fas fa-rupee-sign"></i>
+                                <td><strong>{{ round($report['totalAmount'], 2) }}</strong>&nbsp&nbsp<i
+                                        class="fas fa-rupee-sign"></i>
                                 </td>
                             </tr>
                             <tr>
@@ -127,9 +128,10 @@
                                     </div>
                                 </td>
                                 <td><span
-                                        class="badge bg-success">{{ ($report['balance'] * 100) / $report['totalAmount'] }}%</span>
+                                        class="badge bg-success">{{ round(($report['balance'] * 100) / $report['totalAmount'], 2) }}%</span>
                                 </td>
-                                <td><strong>{{ $report['balance'] }}</strong>&nbsp&nbsp<i class="fas fa-rupee-sign"></i>
+                                <td><strong>{{ round($report['balance'], 2) }}</strong>&nbsp&nbsp<i
+                                        class="fas fa-rupee-sign"></i>
                                 </td>
                             </tr>
                             <tr>
@@ -143,9 +145,10 @@
                                     </div>
                                 </td>
                                 <td><span
-                                        class="badge bg-danger">{{ ($report['spent'] * 100) / $report['totalAmount'] }}%</span>
+                                        class="badge bg-danger">{{ round(($report['spent'] * 100) / $report['totalAmount'], 2) }}%</span>
                                 </td>
-                                <td><strong>{{ $report['spent'] }}</strong>&nbsp&nbsp<i class="fas fa-rupee-sign"></i></td>
+                                <td><strong>{{ round($report['spent'], 2) }}</strong>&nbsp&nbsp<i
+                                        class="fas fa-rupee-sign"></i></td>
                             </tr>
                         </tbody>
                     </table>
