@@ -535,7 +535,7 @@
                             <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation">
                              <tr>
                               <th valign="top" align="center" style="font-weight: normal;line-height: 1;">
-                               <a class="pc-w620-width-150" style="border-radius: 8px;background-color: #1b1b1b;padding: 14px 19px 14px 19px;width: 300px;font-family: 'Fira Sans', Helvetica, Arial, sans-serif;font-weight: 500;font-size: 16px;line-height: 150%;letter-spacing: -0.2px;color: #ffffff;text-align: center;text-align-last: center;text-decoration: none;display: inline-block;vertical-align: top;-webkit-text-size-adjust: none;" href="https://elevate360.in/reset-password" target="_blank">Reset Password</a>
+                               <a class="pc-w620-width-150" style="border-radius: 8px;background-color: #1b1b1b;padding: 14px 19px 14px 19px;width: 300px;font-family: 'Fira Sans', Helvetica, Arial, sans-serif;font-weight: 500;font-size: 16px;line-height: 150%;letter-spacing: -0.2px;color: #ffffff;text-align: center;text-align-last: center;text-decoration: none;display: inline-block;vertical-align: top;-webkit-text-size-adjust: none;" href="https://money.elevate360.in/forgot-password" target="_blank">Reset Password</a>
                               </th>
                              </tr>
                             </table>
