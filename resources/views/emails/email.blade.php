@@ -534,7 +534,7 @@
                             <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
                              <tr>
                               <td align="left" valign="top">
-                               <img src="https://cloudfilesdm.com/postcards/content-15-image-1.jpg" class="" width="40" height="40" alt="" style="display: block;border: 0;outline: 0;line-height: 100%;-ms-interpolation-mode: bicubic;width:40px;height: auto;max-width: 100%;" />
+                               <img src="https://cloudfilesdm.com/postcards/content-15-image-1.jpg" class="" width="40" height="40" alt="" style="display: block;border: 0;outline: 0;line-height: 100%;-ms-interpolation-mode: bicubic;width:40px;height: auto;max-width: 100%;border-radius: 500px 500px 500px 500px;" />
                               </td>
                              </tr>
                             </table>
