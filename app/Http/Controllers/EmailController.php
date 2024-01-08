@@ -23,7 +23,7 @@ class EmailController extends BaseController
 
     public function sendEmail(Request $request)
     {
-        $email = $request->input("email");
+        $email = explode(",", trim($request->input("email")));
         $name = $request->input("name");
         $customData = array(
             "subject" => $request->input("subject"),
