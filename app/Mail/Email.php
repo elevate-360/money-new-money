@@ -4,7 +4,7 @@ namespace App\Mail;
 
 use Illuminate\Mail\Mailable;
 
-class LoginSuccess extends Mailable
+class Email extends Mailable
 {
     public $data;
 
@@ -15,7 +15,7 @@ class LoginSuccess extends Mailable
 
     public function build()
     {
-        return $this->subject('Login Attempted')
-            ->view('emails.login');
+        return $this->subject($this->data["subject"])
+            ->view('emails.email');
     }
 }

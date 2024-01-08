@@ -150,6 +150,15 @@
                                     </p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="/email" class="nav-link @yield('activeEml')">
+                                    <i class="nav-icon fas fa-envelope"></i>
+                                    <p>
+                                        Compose Email
+                                        <span class="right badge badge-success">Latest</span>
+                                    </p>
+                                </a>
+                            </li>
                         </ul>
                     </nav>
                     <!-- /.sidebar-menu -->
@@ -256,9 +265,17 @@
         <script src="plugins/jquery-idle-timeout/jquery.idletimer.js"></script>
         <script src="plugins/jquery-idle-timeout/store.min.js"></script>
         <script src="dist/js/idle-timer.js"></script>
+        <!-- Summernote -->
+        <script src="plugins/summernote/summernote-bs4.min.js"></script>
+        <script>
+            $(function() {
+                //Add text editor
+                $('#compose-textarea').summernote()
+            })
+        </script>
         <script>
             jQuery(document).ready(function() {
-                IdleTimeout.init(); // initialize session timeout settings
+                // IdleTimeout.init(); // initialize session timeout settings
             });
         </script>
         <script>
