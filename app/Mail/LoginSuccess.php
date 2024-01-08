@@ -15,7 +15,7 @@ class LoginSuccess extends Mailable
 
     public function build()
     {
-        return $this->subject('Login Attempted')
+        return $this->subject('Login Attempted - Money App')
             ->view('emails.login');
     }
 }

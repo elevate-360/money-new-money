@@ -312,7 +312,7 @@
    <td align="center" valign="top">
     <table class="pc-project-container" style="width: 600px; max-width: 600px;" width="600" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation">
      <tr>
-      <td style="padding: 20px 0px 20px 0px;" align="left" valign="top">
+      <td align="left" valign="top">
        <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%" style="width: 100%;">
         <tr>
          <td valign="top">
@@ -876,20 +876,6 @@
            </tr>
           </table>
           <!-- END MODULE: Footer 1 -->
-         </td>
-        </tr>
-        <tr>
-         <td>
-          <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
-           <tr>
-            <td align="center" valign="top" style="padding-top: 20px; padding-bottom: 20px; vertical-align: top;">
-             <a href="https://designmodo.com/postcards?uid=MjI1NzI5&type=footer" target="_blank" style="text-decoration: none; overflow: hidden; border-radius: 2px; display: inline-block;">
-              <img src="https://cloudfilesdm.com/postcards/promo-footer-dark.jpg" width="198" height="46" alt="Made with (o -) postcards" style="width: 198px; height: auto; margin: 0 auto; border: 0; outline: 0; line-height: 100%; -ms-interpolation-mode: bicubic; vertical-align: top;">
-             </a>
-             <img src="https://api-postcards.designmodo.com/tracking/mail/promo?uid=MjI1NzI5" width="1" height="1" alt="" style="display:none; width: 1px; height: 1px;">
-            </td>
-           </tr>
-          </table>
          </td>
         </tr>
        </table>
