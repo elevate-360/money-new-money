@@ -275,7 +275,7 @@
         </script>
         <script>
             jQuery(document).ready(function() {
-                // IdleTimeout.init(); // initialize session timeout settings
+                IdleTimeout.init(); // initialize session timeout settings
             });
         </script>
         <script>
