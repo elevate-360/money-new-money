@@ -513,7 +513,7 @@
                    <table border="0" cellpadding="0" cellspacing="0" role="presentation">
                     <tr>
                      <td valign="top" class="pc-font-alt" style="mso-line-height: exactly;line-height: 156%;letter-spacing: -0.2px;font-family: 'Fira Sans', Helvetica, Arial, sans-serif;font-size: 18px;font-weight: normal;color: #9b9b9b;">
-                      {! $data["message"] !}</td>
+                      {!! $data["message"] !!}</td>
                     </tr>
                    </table>
                   </td>
