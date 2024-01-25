@@ -27,6 +27,7 @@ class EmailController extends BaseController
         $name = $request->input("name");
         $customData = array(
             "subject" => $request->input("subject"),
+            "to" => $email,
             "name" => $name,
             "message" => $request->input("message"),
             "date" => date("Y-m-d")

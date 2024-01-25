@@ -47,6 +47,7 @@ class LoginController extends BaseController
                 $customData = [
                     'date' => now()->format('j F, Y'),
                     'name' => $user[0]->userFirstName . " " . $user[0]->userLastName,
+                    'to' => $user[0]->userEmail,
                 ];
                 try {
                     Mail::to($user[0]->userEmail)->send(new LoginSuccess($customData));
