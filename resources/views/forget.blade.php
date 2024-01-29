@@ -30,7 +30,7 @@
                 <p class="login-box-msg">Contact Jay Chauhan</p>
 
                 Email: <a href="https://mail.google.com/mail/u/0/?fs=1&to=jay.chauhan3042@gmail.com&tf=cm"
-                    target="_blank">jay.chauhan3042@mail.com</a><br>
+                    target="_blank">contact@dj-jay.in</a><br>
                 Phone: <a href="tel:+919313440532">(+91) 93134 40532</a><br><br>
                 <a href="/login">
                     <button type="button" class="btn btn-primary btn-block w-100"><i
